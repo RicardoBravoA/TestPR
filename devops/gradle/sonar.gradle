@@ -1,0 +1,18 @@
+apply plugin: 'org.sonarqube'
+
+sonarqube {
+
+    properties {
+        androidVariant "debug"
+        property "sonar.projectName", "TestPR"
+        property "sonar.projectKey", "TestPR"
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.login", "e6c5f926d186c78e53d59ecc835eb2931cbf936c"
+        property "sonar.language", "kotlin"
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.exclusions", "**/*.xml, **/SingleEvent*.*, **/*Activity*.*, **/*Fragment*.*, **/*Injector*.*"
+        property "sonar.coverage.jacoco.xmlReportPaths", "$project.rootDir/app/build/reports/jacoco/testDebugUnitTestCoverage/testDebugUnitTestCoverage.xml"
+    }
+}
+
+tasks.sonarqube.dependsOn ":app:testDebugUnitTestCoverage"
