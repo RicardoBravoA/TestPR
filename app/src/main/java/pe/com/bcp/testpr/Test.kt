@@ -6,5 +6,4 @@ object Test {
         return value1 + value2
     }
 
-
 }
